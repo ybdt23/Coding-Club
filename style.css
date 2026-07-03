@@ -1,0 +1,325 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b0b14;
+  color: white;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #2a0a4a, transparent),
+              radial-gradient(circle at bottom, #0a1a3a, transparent);
+  z-index: -1;
+}
+
+/* 상단 */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* 히어로 */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 갤러리 */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 60px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 12px;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(120,0,255,0.4);
+}
+
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 버튼 */
+.btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #6a00ff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 모달 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  width: 60%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.modal-content img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+#modalCode {
+  background: #000;
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 12px;
+  color: #0f0;
+}
+
+#close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.interactive {
+  padding: 80px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.plot-card {
+  background: rgba(255,255,255,0.05);
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+#plot3d, #pieChart, #lineChart {
+  height: 400px;
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+th {
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+}
+
+button {
+  padding: 8px 12px;
+  background: #6a00ff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cursor-light {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(162,0,255,0.25), transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.stage {
+  padding: 60px;
+  text-align: center;
+}
+
+.stage-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.stage-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  background: rgba(255,255,255,0.04);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+
+  min-height: 400px;
+}
+
+#liveGraph {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #6a00ff33, transparent);
+  border-radius: 20px;
+}
+
+.stage-info {
+  text-align: left;
+  max-width: 300px;
+}
+
+#generateBtn {
+  margin-top: 15px;
+  padding: 10px;
+  background: #6a00ff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#introScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+
+  animation: fadeOut 2.5s ease forwards;
+  animation-delay: 1.2s;
+}
+
+#introScreen h1 {
+  color: white;
+  letter-spacing: 4px;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#modalCode {
+  background: #0a0a0a;
+  color: #00ff88;
+  padding: 15px;
+  font-family: monospace;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #333;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery {
+  max-width: 1200px;
+}
+
+.stage {
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .stage-box {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  #liveGraph {
+    width: 100%;
+    height: 300px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.card, button {
+  -webkit-tap-highlight-color: transparent;
+}

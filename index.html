@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Visualization Exhibition</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+<div id="introScreen">
+  <h1>ENTERING EXHIBITION</h1>
+</div>
+<div class="bg"></div>
+
+<header class="topbar">
+  <div class="logo">DATA VISUALIZATION EXHIBITION</div>
+  <div class="visitor">Visitor : <span id="visitorCount">1247</span></div>
+</header>
+
+<section class="hero">
+  <h1>Data Visualization</h1>
+  <p>AI · Mathematics · Python · Statistics</p>
+  <p class="sub">Scroll to explore the exhibition</p>
+</section>
+
+<!-- 작품 갤러리 -->
+<section class="gallery">
+
+  <div class="card" data-id="loss">
+    <img src="graphs/loss.png" class="card-img"/>
+    <h3>Gradient Descent Loss</h3>
+    <p>손실 함수 감소 과정</p>
+    <button class="btn">자세히 보기</button>
+  </div>
+
+  <div class="card" data-id="surface">
+    <img src="graphs/surface3d.png" class="card-img"/>
+    <h3>3D Surface Plot</h3>
+    <p>3차원 함수 시각화</p>
+    <button class="btn">자세히 보기</button>
+  </div>
+
+  <div class="card" data-id="contour">
+    <img src="graphs/contour.png" class="card-img"/>
+    <h3>Contour Map</h3>
+    <p>등고선 분석</p>
+    <button class="btn">자세히 보기</button>
+  </div>
+
+  <div class="card" data-id="pie">
+    <img src="graphs/pie.png" class="card-img"/>
+    <h3>Pie Chart</h3>
+    <p>비율 데이터 분석</p>
+    <button class="btn">자세히 보기</button>
+  </div>
+
+  <div class="card" data-id="table">
+    <img src="graphs/table.png" class="card-img"/>
+    <h3>Statistics Table</h3>
+    <p>데이터 요약</p>
+    <button class="btn">자세히 보기</button>
+  </div>
+
+</section>
+
+<!-- 모달 -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span id="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <img id="modalImage"/>
+    <p id="modalDesc"></p>
+    <pre id="modalCode"></pre>
+  </div>
+</div>
+
+<footer>© 2026 코딩연구반</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<!-- Plotly 라이브러리 -->
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+
+<!-- 3D & Interactive Section -->
+<section class="interactive">
+
+  <h2 class="section-title">Interactive Visualization Lab</h2>
+
+  <!-- 3D GRAPH -->
+  <div class="plot-card">
+    <h3>3D Surface (Interactive)</h3>
+    <div id="plot3d"></div>
+  </div>
+
+  <!-- PIE -->
+  <div class="plot-card">
+    <h3>Dynamic Pie Chart</h3>
+    <div id="pieChart"></div>
+  </div>
+
+  <!-- LINE -->
+  <div class="plot-card">
+    <h3>Loss Curve Animation</h3>
+    <div id="lineChart"></div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="plot-card">
+    <h3>Dataset Table</h3>
+
+    <button id="downloadCSV">Download CSV</button>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Epoch</th>
+          <th>Loss</th>
+          <th>Accuracy</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+  </div>
+
+</section>
+
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+
+<button id="runCode">▶ Run Code</button>
+<div id="outputBox"></div>
+
+<div class="cursor-light"></div>
+
+<section class="stage">
+
+  <div class="stage-title">
+    LIVE VISUALIZATION STAGE
+  </div>
+
+  <div class="stage-box">
+
+    <div id="liveGraph">
+      <!-- 동적으로 그래프 들어오는 자리 -->
+    </div>
+
+    <div class="stage-info">
+      <h2 id="liveTitle">Gradient Descent</h2>
+      <p id="liveDesc">Select a work to display here</p>
+
+      <button id="generateBtn">Generate New Graph</button>
+    </div>
+
+  </div>
+
+</section>
